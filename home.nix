@@ -112,26 +112,35 @@
         share = true;
         size = 100000;
       };
-      initExtra = "eval \"$(starship init zsh)\"
+      initExtra = "
+        bindkey \"^[[H\"    beginning-of-line
+        bindkey \"^[[1~\"   beginning-of-line
+        bindkey \"^[OH\"    beginning-of-line
+        bindkey \"^[[F\"    end-of-line
+        bindkey \"^[[4~\"   end-of-line
+        bindkey \"^[OF\"    end-of-line
+        bindkey \"^[[3~\"   delete-char
+        bindkey \"^[[1;5D\" backward-word
+        bindkey \"^[[1;5C\" forward-word
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup=\"$('$HOME/.local/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)\"
-if [ $? -eq 0 ]; then
-    eval \"$__conda_setup\"
-else
-    if [ -f \"$HOME/.local/opt/anaconda3/etc/profile.d/conda.sh\" ]; then
-        . \"$HOME/.local/opt/anaconda3/etc/profile.d/conda.sh\"
-    else
-        export PATH=\"$HOME/.local/opt/anaconda3/bin:$PATH\"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-export PATH=\"\${HOME}/.local/bin:\${PATH}\"
+        # >>> conda initialize >>>
+        # !! Contents within this block are managed by 'conda init' !!
+        __conda_setup=\"$('$HOME/.local/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)\"
+        if [ $? -eq 0 ]; then
+            eval \"$__conda_setup\"
+        else
+            if [ -f \"$HOME/.local/opt/anaconda3/etc/profile.d/conda.sh\" ]; then
+                . \"$HOME/.local/opt/anaconda3/etc/profile.d/conda.sh\"
+            else
+                export PATH=\"$HOME/.local/opt/anaconda3/bin:$PATH\"
+            fi
+        fi
+        unset __conda_setup
+        # <<< conda initialize <<<
+        export PATH=\"\${HOME}/.local/bin:\${PATH}\"
 
-export PATH=\"/opt/homebrew/bin/:\${PATH}\"
-";
+        export PATH=\"/opt/homebrew/bin/:\${PATH}\"
+        ";
     };
   };
 }
