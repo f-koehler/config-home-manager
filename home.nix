@@ -77,6 +77,10 @@
         nvim-treesitter
       ];
     };
+    starship = {
+      enable = true;
+      enableZshIntegration = true;
+    };
     tmux = {
       enable = true;
       plugins = with pkgs.tmuxPlugins; [
