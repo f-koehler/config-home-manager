@@ -99,7 +99,6 @@
       # enableAutosuggestions = true;
       # enableCompletion = true;
       enableSyntaxHighlighting = true;
-      enableVteIntegration = true;
       dotDir = ".config/zsh";
       history = {
         ignoreDups = true;
