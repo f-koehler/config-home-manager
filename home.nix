@@ -121,7 +121,11 @@
         bindkey \"^[OF\"    end-of-line
         bindkey \"^[[3~\"   delete-char
         bindkey \"^[[1;5D\" backward-word
+        bindkey \"^[[1;3D\" backward-word
+        bindkey \"^[^[[D\"  backward-word
         bindkey \"^[[1;5C\" forward-word
+        bindkey \"^[[1;3C\" forward-word
+        bindkey \"^[^[[C\"  forward-word
 
         # >>> conda initialize >>>
         # !! Contents within this block are managed by 'conda init' !!
