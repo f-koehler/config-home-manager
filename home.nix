@@ -4,8 +4,9 @@
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "fkoehler";
-  home.homeDirectory = "/home/fkoehler";
-  xdg.stateHome = "/home/fkoehler/.local/statstate";
+
+  home.homeDirectory = if pkgs.stdenv.isDarwin then "/Users/fkoehler" else "/home/fkoehler";
+  xdg.stateHome = if pkgs.stdenv.isDarwin then "/Users/fkoehler/.local/statstate" else "/home/fkoehler/.local/statstate";
 
   home.packages = with pkgs; [
     nixpkgs-fmt
